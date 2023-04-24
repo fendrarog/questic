@@ -37,6 +37,12 @@ const Test: React.FC = () => {
     dispatch(getTest(id));
   }, [dispatch, id]);
 
+  useEffect(() => {
+    if (!isIdle) return;
+    if (isRight) window.navigator.vibrate(200);
+    if (!isRight) window.navigator.vibrate(500);
+  }, [isIdle]);
+
   return (
     <>
       {isRight ? (

@@ -13,15 +13,17 @@ const Popup: React.FC<PopupProps> = ({
   active,
   duration,
 }) => {
-  const [animate, setAnimate] = useState("fliesout");
+  const [animate, setAnimate] = useState("animate-fliesout");
+
+  console.log(animate);
 
   const handleAnimate = () => {
-    setAnimate("fliesin");
+    setAnimate("animate-fliesin");
   };
 
   useEffect(() => {
     let timer: NodeJS.Timeout;
-    if (animate === "fliesin") {
+    if (animate === "animate-fliesin") {
       timer = setTimeout(handlePopup, duration * 1000 - 100);
     }
 
@@ -35,7 +37,7 @@ const Popup: React.FC<PopupProps> = ({
       onClick={handleAnimate}
     >
       <div
-        className={`animate-${animate} max-w-[600px] p-5 bg-black text-white`}
+        className={`${animate} max-w-[600px] p-5 bg-black text-white`}
         style={{ animationDuration: `${duration}s` }}
       >
         {text}
