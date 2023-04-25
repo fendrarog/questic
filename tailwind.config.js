@@ -3,6 +3,9 @@ module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   darkMode: "class",
   theme: {
+    fontFamily: {
+      os: ["Open sans", "sans-serif"],
+    },
     extend: {
       backgroundColor: {
         "main-bg": "#FAFBFB",
@@ -13,8 +16,8 @@ module.exports = {
       keyframes: {
         wiggle: {
           "0% 100%": { transform: "rotate(0deg)" },
-          "15%, 35%, 55%, 75%, 95%": { transform: "rotate(-1deg)" },
-          "5%, 25%, 45%, 65%, 85%": { transform: "rotate(1deg)" },
+          "15%, 35%, 55%, 75%, 95%": { transform: "rotate(-2deg)" },
+          "5%, 25%, 45%, 65%, 85%": { transform: "rotate(2deg)" },
         },
         appear: {
           "0%": { opacity: "0", transform: "translateY(65px)" },

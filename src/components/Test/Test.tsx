@@ -1,11 +1,13 @@
 import { useEffect, useRef, useState } from "react";
-import Confetti from "../features/Confetti";
+// import Confetti from "../features/Confetti";
 import { useDimension } from "../../hooks/useDimension";
 import { useParams } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { getTest } from "../../redux/questionsSlice";
 import TestInner from "./TestInner";
 import TestResult from "./TestResult";
+import ConfettiExplosion from "react-confetti-explosion";
+import { useStateContext } from "../../context/ContextProvider";
 
 const Test: React.FC = () => {
   const { test: data } = useAppSelector((state) => state.questions);
@@ -14,7 +16,7 @@ const Test: React.FC = () => {
   const { id } = useParams();
 
   const block = useRef(null);
-  const { width, height, top, left } = useDimension(block);
+  const { screenWidth } = useStateContext();
 
   const [step, setStep] = useState(0);
   const [isIdle, setIsIdle] = useState(false);
@@ -45,11 +47,32 @@ const Test: React.FC = () => {
 
   return (
     <>
-      {isRight ? (
+      {/* {isRight ? (
         <Confetti width={width} height={height} top={top} left={left} />
+      ) : null} */}
+
+      {isRight ? (
+        <>
+          <ConfettiExplosion
+            duration={2000}
+            width={screenWidth}
+            force={0.2}
+            particleCount={75}
+            particleSize={screenWidth! < 600 ? 5 : 17}
+            className="fixed top-0 left-0"
+          />
+          <ConfettiExplosion
+            duration={2000}
+            width={screenWidth}
+            force={0.2}
+            particleCount={75}
+            particleSize={screenWidth! < 600 ? 5 : 17}
+            className="fixed top-0 right-0"
+          />
+        </>
       ) : null}
 
-      <div className="flex justify-center items-center h-full">
+      <div className="flex sm:justify-center items-center h-full">
         <div
           ref={block}
           onClick={() => {
@@ -60,11 +83,11 @@ const Test: React.FC = () => {
               setClickedOption(null);
             }
           }}
-          className={`max-w-[500px] bg-white dark:bg-[#1b1f2a] ${
+          className={`max-w-[700px] flex-1 bg-white dark:bg-[#1b1f2a] ${
             isRight === false && "animate-wiggle"
           } ${
             isIdle || "animate-appear"
-          } rounded-sm p-4 md:p-12 ring-1 ring-slate-900/5 shadow-xl mx-auto w-2/3`}
+          } rounded-sm p-4 md:p-12 ring-1 ring-slate-900/5 shadow-xl ml-5 mr-10 sm:mx-auto w-2/3`}
         >
           {step < data.length ? (
             <TestInner

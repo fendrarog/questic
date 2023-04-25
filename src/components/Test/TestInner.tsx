@@ -1,6 +1,3 @@
-import CircleSVG from "../svg/CircleSVG";
-import FailureSVG from "../svg/FailureSVG";
-import SuccessSVG from "../svg/SuccessSVG";
 import TestInnerOption from "./TestInnerOption";
 
 interface TestInnerProps {

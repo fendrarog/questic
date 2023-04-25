@@ -38,7 +38,7 @@ const TestInnerOption: React.FC<TestInnerOptionProps> = ({
     <div className="relative">
       <div
         onClick={() => selectHandler(i)}
-        className={`relative flex gap-5 items-center py-1 px-2 ${
+        className={`relative flex gap-5 items-center py-1 px-2 duration-200 ${
           isIdle
             ? data[step].correct === i
               ? "pointer-events-none"
@@ -46,11 +46,11 @@ const TestInnerOption: React.FC<TestInnerOptionProps> = ({
               ? "pointer-events-none"
               : "hover:bg-light-gray dark:hover:bg-slate-800 hover:drop-shadow-xl"
             : "hover:bg-light-gray dark:hover:bg-slate-800 hover:drop-shadow-xl"
-        }  duration-200 cursor-pointer rounded-sm ${
+        }   cursor-pointer rounded-sm ${
           isIdle ? data[step].correct === i && "bg-green-500" : ""
         } ${
           isIdle ? (!isRight ? clickedOption === i && "bg-red-500" : "") : ""
-        } duration-200`}
+        }`}
       >
         <div className="absolute left-1.5">
           {isIdle ? (
@@ -80,7 +80,7 @@ const TestInnerOption: React.FC<TestInnerOptionProps> = ({
       </div>
       {overflow && (
         <div
-          className="absolute -right-5 sm:-right-11 -bottom-1 p-2 rounded-full hover:bg-light-gray dark:hover:bg-slate-800 cursor-pointer"
+          className="absolute -right-12 sm:-right-14 -bottom-1 p-1 rounded-full bg-light-gray dark:bg-slate-800 cursor-pointer"
           onClick={isIdle ? undefined : () => setIsPopup(true)}
         >
           <FlashlightSVG

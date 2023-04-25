@@ -11,7 +11,7 @@ const Navbar = () => {
         type="button"
         onClick={() => setActiveMenu((prevActiveMenu) => !prevActiveMenu)}
         style={{ color: "blue" }}
-        className="flex relative text-xl rounded-full p-3 hover:bg-light-gray"
+        className="flex relative text-xl rounded-full p-3 hover:drop-shadow-xl hover:bg-light-gray dark:hover:bg-slate-800"
       >
         <span
           style={{ background: "transparent" }}

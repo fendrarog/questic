@@ -154,7 +154,7 @@ const Sidebar: React.FC = () => {
             <button
               type="button"
               onClick={() => setActiveMenu((prevActiveMenu) => !prevActiveMenu)}
-              className="rounded-full text-[#99abb4] dark:text-[#E5E7EB] text-2xl p-3 mt-4 mr-3 hover:drop-shadow-xl hover:bg-light-gray dark:hover:bg-[#585f6b] xl:hidden"
+              className="rounded-full text-[#99abb4] dark:text-[#E5E7EB] text-2xl p-3 mt-4 mr-3 hover:drop-shadow-xl hover:bg-light-gray dark:hover:bg-slate-800 xl:hidden"
             >
               <MdOutlineCancel />
             </button>

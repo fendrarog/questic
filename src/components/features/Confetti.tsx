@@ -1,4 +1,4 @@
-import ReactConfetti from "react-confetti";
+// import ReactConfetti from "react-confetti";
 import { useScreenResize } from "../../hooks/useScreenResize";
 
 interface ConfettiProps {
@@ -21,7 +21,7 @@ const Confetti: React.FC<ConfettiProps> = ({
   const { screenHeight, screenWidth } = useScreenResize();
   return (
     <>
-      <ReactConfetti
+      {/* <ReactConfetti
         width={screenWidth}
         height={screenHeight}
         numberOfPieces={numberOfPieces}
@@ -30,7 +30,7 @@ const Confetti: React.FC<ConfettiProps> = ({
         initialVelocityY={12}
         recycle={recycle}
         tweenDuration={500}
-      />
+      /> */}
     </>
   );
 };
