@@ -80,7 +80,7 @@ const TestInnerOption: React.FC<TestInnerOptionProps> = ({
       </div>
       {overflow && (
         <div
-          className="absolute -right-12 sm:-right-14 -bottom-1 p-1 rounded-full bg-light-gray dark:bg-slate-800 cursor-pointer"
+          className="absolute -right-12 sm:-right-14 -bottom-1 p-1 rounded-full shadow-xl bg-white dark:bg-slate-800 cursor-pointer"
           onClick={isIdle ? undefined : () => setIsPopup(true)}
         >
           <FlashlightSVG

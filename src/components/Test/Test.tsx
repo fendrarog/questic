@@ -1,13 +1,11 @@
 import { useEffect, useRef, useState } from "react";
-// import Confetti from "../features/Confetti";
-import { useDimension } from "../../hooks/useDimension";
 import { useParams } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { getTest } from "../../redux/questionsSlice";
 import TestInner from "./TestInner";
 import TestResult from "./TestResult";
-import ConfettiExplosion from "react-confetti-explosion";
 import { useStateContext } from "../../context/ContextProvider";
+import Confetti from "../features/Confetti";
 
 const Test: React.FC = () => {
   const { test: data } = useAppSelector((state) => state.questions);
@@ -41,36 +39,13 @@ const Test: React.FC = () => {
 
   useEffect(() => {
     if (!isIdle) return;
-    if (isRight) window.navigator.vibrate(200);
+    if (isRight) window.navigator.vibrate(50);
     if (!isRight) window.navigator.vibrate(500);
   }, [isIdle]);
 
   return (
     <>
-      {/* {isRight ? (
-        <Confetti width={width} height={height} top={top} left={left} />
-      ) : null} */}
-
-      {isRight ? (
-        <>
-          <ConfettiExplosion
-            duration={2000}
-            width={screenWidth}
-            force={0.2}
-            particleCount={75}
-            particleSize={screenWidth! < 600 ? 5 : 17}
-            className="fixed top-0 left-0"
-          />
-          <ConfettiExplosion
-            duration={2000}
-            width={screenWidth}
-            force={0.2}
-            particleCount={75}
-            particleSize={screenWidth! < 600 ? 5 : 17}
-            className="fixed top-0 right-0"
-          />
-        </>
-      ) : null}
+      <Confetti isActive={isRight} screenSmall={screenWidth! < 500} />
 
       <div className="flex sm:justify-center items-center h-full">
         <div
