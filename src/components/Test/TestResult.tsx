@@ -1,11 +1,9 @@
 interface TestResultProps {
-  progress: number;
   step: number;
   passedQuestions: number;
 }
 
 const TestResult: React.FC<TestResultProps> = ({
-  progress,
   step,
   passedQuestions,
 }) => {

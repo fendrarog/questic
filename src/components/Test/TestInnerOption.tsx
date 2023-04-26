@@ -35,10 +35,10 @@ const TestInnerOption: React.FC<TestInnerOptionProps> = ({
   console.log(isPopup);
 
   return (
-    <div className="relative">
+    <>
       <div
         onClick={() => selectHandler(i)}
-        className={`relative flex gap-5 items-center py-1 px-2 duration-200 ${
+        className={`relative min-h-[35px] flex gap-3 items-center px-2 duration-200 ${
           isIdle
             ? data[step].correct === i
               ? "pointer-events-none"
@@ -52,53 +52,55 @@ const TestInnerOption: React.FC<TestInnerOptionProps> = ({
           isIdle ? (!isRight ? clickedOption === i && "bg-red-500" : "") : ""
         }`}
       >
-        <div className="absolute left-1.5">
+        <div className="">
           {isIdle ? (
             data[step].correct === i ? (
-              <SuccessSVG className="dark:stroke-green-100 stroke-green-950 w-3 sm:w-6 h-3 sm:h-6" />
+              <SuccessSVG className="dark:stroke-green-100 stroke-green-950 w-3 sm:w-5 h-3 sm:h-5" />
             ) : !isRight && clickedOption === i ? (
-              <FailureSVG className="dark:stroke-red-100 stroke-red-950 w-3 sm:w-6 h-3 sm:h-6" />
+              <FailureSVG className="dark:stroke-red-100 stroke-red-950 w-3 sm:w-5 h-3 sm:h-5" />
             ) : (
               <CircleSVG
                 className={
-                  "dark:stroke-white stroke-black w-3 sm:w-6 h-3 sm:h-6"
+                  "dark:stroke-white stroke-black w-3 sm:w-5 h-3 sm:h-5"
                 }
               />
             )
           ) : (
             <CircleSVG
-              className={"dark:stroke-white stroke-black w-3 sm:w-6 h-3 sm:h-6"}
+              className={"dark:stroke-white stroke-black w-3 sm:w-5 h-3 sm:h-5"}
             />
           )}
         </div>
         <div
           ref={refOption}
-          className="relative pl-4 sm:pl-8 tracking-tight whitespace-nowrap text-ellipsis overflow-x-auto scroll-none"
+          className="relative tracking-tight whitespace-nowrap text-ellipsis overflow-x-auto scroll-none"
         >
           {answer}
         </div>
-      </div>
-      {overflow && (
-        <div
-          className="absolute -right-12 sm:-right-14 -bottom-1 p-1 rounded-full shadow-xl bg-white dark:bg-slate-800 cursor-pointer"
-          onClick={isIdle ? undefined : () => setIsPopup(true)}
-        >
-          <FlashlightSVG
-            className={" dark:stroke-white stroke-black w-4 sm:w-6 h-4 sm:h-6"}
+        {overflow && (
+          <div
+            className="absolute -right-12 sm:-right-14 -bottom-1 p-1 rounded-full shadow-xl bg-white dark:bg-slate-800 cursor-pointer"
+            onClick={isIdle ? undefined : () => setIsPopup(true)}
+          >
+            <FlashlightSVG
+              className={
+                " dark:stroke-white stroke-black w-4 sm:w-6 h-4 sm:h-6"
+              }
+            />
+          </div>
+        )}
+        {isPopup && (
+          <Popup
+            text={answer}
+            handlePopup={() => {
+              setIsPopup(false);
+            }}
+            active={isPopup}
+            duration={0.3}
           />
-        </div>
-      )}
-      {isPopup && (
-        <Popup
-          text={answer}
-          handlePopup={() => {
-            setIsPopup(false);
-          }}
-          active={isPopup}
-          duration={0.3}
-        />
-      )}
-    </div>
+        )}
+      </div>
+    </>
   );
 };
 

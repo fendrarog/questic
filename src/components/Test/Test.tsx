@@ -20,7 +20,6 @@ const Test: React.FC = () => {
   const [isIdle, setIsIdle] = useState(false);
   const [clickedOption, setClickedOption] = useState<null | number>(null);
   const [isRight, setIsRight] = useState<null | boolean>(null);
-  const [progress, setProgress] = useState(0);
   const [passedQuestions, setPassedQuestions] = useState(0);
 
   const selectHandler = (i: number) => {
@@ -28,7 +27,6 @@ const Test: React.FC = () => {
     setIsIdle(true);
     setClickedOption(i);
     setIsRight(i === data[step].correct);
-    setProgress((val) => val + 100 / data.length);
     i === data[step].correct && setPassedQuestions((val) => val + 1);
   };
 
@@ -39,7 +37,7 @@ const Test: React.FC = () => {
 
   useEffect(() => {
     if (!isIdle) return;
-    if (isRight) window.navigator.vibrate(50);
+    if (isRight) window.navigator.vibrate(100);
     if (!isRight) window.navigator.vibrate(500);
   }, [isIdle]);
 
@@ -67,7 +65,6 @@ const Test: React.FC = () => {
           {step < data.length ? (
             <TestInner
               data={data}
-              progress={progress}
               step={step}
               isIdle={isIdle}
               clickedOption={clickedOption}
@@ -76,7 +73,6 @@ const Test: React.FC = () => {
             />
           ) : (
             <TestResult
-              progress={progress}
               step={step}
               passedQuestions={passedQuestions}
             />
