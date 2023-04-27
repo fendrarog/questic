@@ -43,7 +43,7 @@ const Test: React.FC = () => {
 
   return (
     <>
-      <Confetti isActive={isRight} screenSmall={screenWidth! < 500} />
+      <Confetti isActive={isRight} isScreenSmall={screenWidth! < 850} />
 
       <div className="flex sm:justify-center items-center h-full">
         <div
@@ -72,10 +72,7 @@ const Test: React.FC = () => {
               selectHandler={selectHandler}
             />
           ) : (
-            <TestResult
-              step={step}
-              passedQuestions={passedQuestions}
-            />
+            <TestResult step={step} passedQuestions={passedQuestions} />
           )}
         </div>
       </div>
