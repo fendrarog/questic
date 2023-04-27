@@ -27,25 +27,18 @@ const TestInnerOption: React.FC<TestInnerOptionProps> = ({
   selectHandler,
   answer,
 }) => {
-  const refOption = useRef(null);
-  const overflow = useOverflow(refOption, answer);
-
-  const [isPopup, setIsPopup] = useState(false);
-
-  console.log(isPopup);
-
   return (
     <>
       <div
         onClick={() => selectHandler(i)}
-        className={`relative min-h-[35px] flex gap-3 items-center px-2 duration-200 ${
+        className={`relative min-h-[35px] flex gap-3 items-center pl-2 pr-4 lg:pr-12 duration-200 ${
           isIdle
             ? data[step].correct === i
               ? "pointer-events-none"
               : !isRight && clickedOption === i
               ? "pointer-events-none"
-              : "hover:bg-light-gray dark:hover:bg-slate-800 hover:drop-shadow-xl"
-            : "hover:bg-light-gray dark:hover:bg-slate-800 hover:drop-shadow-xl"
+              : "lg:hover:bg-light-gray lg:dark:hover:bg-slate-800 lg:hover:drop-shadow-xl"
+            : "lg:hover:bg-light-gray lg:dark:hover:bg-slate-800 lg:hover:drop-shadow-xl"
         }   cursor-pointer rounded-sm ${
           isIdle ? data[step].correct === i && "bg-green-500" : ""
         } ${
@@ -55,29 +48,29 @@ const TestInnerOption: React.FC<TestInnerOptionProps> = ({
         <div className="">
           {isIdle ? (
             data[step].correct === i ? (
-              <SuccessSVG className="dark:stroke-green-100 stroke-green-950 w-3 sm:w-5 h-3 sm:h-5" />
+              <SuccessSVG className="dark:stroke-green-100 stroke-green-950 w-4 sm:w-5 h-4 sm:h-5" />
             ) : !isRight && clickedOption === i ? (
-              <FailureSVG className="dark:stroke-red-100 stroke-red-950 w-3 sm:w-5 h-3 sm:h-5" />
+              <FailureSVG className="dark:stroke-red-100 stroke-red-950 w-4 sm:w-5 h-4 sm:h-5" />
             ) : (
               <CircleSVG
                 className={
-                  "dark:stroke-white stroke-black w-3 sm:w-5 h-3 sm:h-5"
+                  "dark:stroke-[#596b7d] stroke-black w-4 sm:w-5 h-4 sm:h-5"
                 }
               />
             )
           ) : (
             <CircleSVG
-              className={"dark:stroke-white stroke-black w-3 sm:w-5 h-3 sm:h-5"}
+              className={
+                "dark:stroke-[#596b7d] stroke-black w-4 sm:w-5 h-4 sm:h-5"
+              }
             />
           )}
         </div>
-        <div
-          ref={refOption}
-          className="relative tracking-tight whitespace-nowrap text-ellipsis overflow-x-auto scroll-none"
-        >
+        <div className="relative grow flex items-center h-[35px] tracking-tight text-xs md:text-base lg:text-lg">
           {answer}
+          <div className="absolute bottom-0 left-0 h-[0.5px] w-[calc(100%+1rem)] lg:w-[calc(100%+3rem)] bg-[#3f4e5c]"></div>
         </div>
-        {overflow && (
+        {/* {overflow && (
           <div
             className="absolute -right-12 sm:-right-14 -bottom-1 p-1 rounded-full shadow-xl bg-white dark:bg-slate-800 cursor-pointer"
             onClick={isIdle ? undefined : () => setIsPopup(true)}
@@ -98,7 +91,7 @@ const TestInnerOption: React.FC<TestInnerOptionProps> = ({
             active={isPopup}
             duration={0.3}
           />
-        )}
+        )} */}
       </div>
     </>
   );

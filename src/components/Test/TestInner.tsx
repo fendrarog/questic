@@ -18,8 +18,8 @@ const TestInner: React.FC<TestInnerProps> = ({
   selectHandler,
 }) => {
   return (
-    <div className="text-xs sm:text-lg">
-      <div className="text-slate-900 dark:text-white font-medium tracking-tight">
+    <div className="">
+      <div className="pr-4 lg:pr-12 text-slate-900 dark:text-white font-medium tracking-tight text-sm md:text-lg lg:text-xl">
         {data[step].title}
       </div>
       <div className="flex flex-col text-slate-900 dark:text-white mt-2">

@@ -56,11 +56,9 @@ const Test: React.FC = () => {
               setClickedOption(null);
             }
           }}
-          className={`max-w-[700px] flex-1 bg-white dark:bg-[#1b1f2a] ${
-            isRight === false && "animate-wiggle"
-          } ${
+          className={`max-w-[700px] flex-1 bg-white dark:bg-[#222e3a] ${isRight === false && "animate-wiggle"} ${
             isIdle || "animate-appear"
-          } rounded-sm p-4 md:p-12 ring-1 ring-slate-900/5 shadow-xl ml-5 mr-10 sm:mx-auto w-2/3`}
+          } rounded-sm py-4 pl-4 lg:py-12 lg:pl-12 ring-1 ring-slate-900/5 shadow-xl ml-5 mr-10 sm:mx-auto w-2/3`}
         >
           {step < data.length ? (
             <TestInner

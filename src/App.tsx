@@ -15,20 +15,20 @@ function App() {
   return (
     <div className={currentMode === "Dark" ? "dark" : ""}>
       <BrowserRouter>
-        <div className="bg-main-bg dark:bg-main-dark-bg min-h-screen flex">
+        <div className="min-h-screen flex">
           <div
             className={`transition-[left] ease-linear duration-200 w-72 ${
               activeMenu ? "left-0" : "left-[-18rem]"
-            } fixed sidebar bg-main-bg dark:bg-main-dark-bg`}
+            } fixed sidebar bg-main-bg dark:bg-[#1d232f]`}
           >
             <Sidebar />
           </div>
           <div
-            className={`flex flex-col transition-[margin] ease-linear duration-200 bg-main-bg dark:bg-main-dark-bg min-h-screen w-full ${
+            className={`flex flex-col transition-[margin] ease-linear duration-200 bg-[#d6c2b9] dark:bg-[#1e131b] min-h-screen w-full ${
               activeMenu ? "xl:ml-72" : "flex-[2_2_0%]"
             }`}
           >
-            <div className="fixed md:static bg-main-bg dark:bg-main-dark-bg navbar w-full">
+            <div className="fixed md:static bg-[#517da2] dark:bg-[#262c3a] navbar w-full">
               <Navbar />
             </div>
 

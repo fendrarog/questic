@@ -38,7 +38,7 @@ const Confetti: React.FC<ConfettiProps> = ({ isActive, isScreenSmall }) => {
       Object.assign({}, defaultToRight, opts, {
         particleCount: Math.floor(count * particleRatio),
         startVelocity: velocityRatio * (isScreenSmall ? 1 : 2),
-        scalar: scalarRatio * (isScreenSmall ? 0.6 : 1),
+        scalar: scalarRatio * (isScreenSmall ? 0.7 : 1),
       })
     );
   }
@@ -54,7 +54,7 @@ const Confetti: React.FC<ConfettiProps> = ({ isActive, isScreenSmall }) => {
         particleCount:
           Math.floor(count * particleRatio) * (isScreenSmall ? 0.4 : 1),
         startVelocity: velocityRatio * (isScreenSmall ? 1 : 2),
-        scalar: scalarRatio * (isScreenSmall ? 0.6 : 1),
+        scalar: scalarRatio * (isScreenSmall ? 0.7 : 1),
       })
     );
   }
