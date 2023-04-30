@@ -58,7 +58,7 @@ const Test: React.FC = () => {
           }}
           className={`max-w-[700px] flex-1 bg-white dark:bg-[#222e3a] ${isRight === false && "animate-wiggle"} ${
             isIdle || "animate-appear"
-          } rounded-sm py-4 pl-4 lg:py-12 lg:pl-12 ring-1 ring-slate-900/5 shadow-xl ml-5 mr-10 sm:mx-auto w-2/3`}
+          } rounded-sm py-4 pl-4 lg:py-12 lg:pl-12 ring-1 ring-slate-900/5 shadow-xl ml-3 mr-10 sm:mx-auto w-2/3`}
         >
           {step < data.length ? (
             <TestInner

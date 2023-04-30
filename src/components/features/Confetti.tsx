@@ -12,13 +12,11 @@ const Confetti: React.FC<ConfettiProps> = ({ isActive, isScreenSmall }) => {
     origin: { x: 0 },
     angle: 45,
     ticks: 500,
-    zIndex: 10000,
   };
   let defaultToLeft = {
     origin: { x: 1 },
     angle: 135,
     ticks: 500,
-    zIndex: 10000,
   };
 
   interface fireProps {
@@ -36,9 +34,10 @@ const Confetti: React.FC<ConfettiProps> = ({ isActive, isScreenSmall }) => {
   }: fireProps) {
     confetti(
       Object.assign({}, defaultToRight, opts, {
-        particleCount: Math.floor(count * particleRatio),
+        particleCount:
+          Math.floor(count * particleRatio) * (isScreenSmall ? 0.4 : 1),
         startVelocity: velocityRatio * (isScreenSmall ? 1 : 2),
-        scalar: scalarRatio * (isScreenSmall ? 0.7 : 1),
+        scalar: scalarRatio * (isScreenSmall ? 1 : 2),
       })
     );
   }
@@ -54,7 +53,7 @@ const Confetti: React.FC<ConfettiProps> = ({ isActive, isScreenSmall }) => {
         particleCount:
           Math.floor(count * particleRatio) * (isScreenSmall ? 0.4 : 1),
         startVelocity: velocityRatio * (isScreenSmall ? 1 : 2),
-        scalar: scalarRatio * (isScreenSmall ? 0.7 : 1),
+        scalar: scalarRatio * (isScreenSmall ? 1 : 2),
       })
     );
   }
