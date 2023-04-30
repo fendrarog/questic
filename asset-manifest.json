@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/questic/static/css/main.c9bff808.css",
+    "main.css": "/questic/static/css/main.6de32485.css",
     "main.js": "/questic/static/js/main.75700055.js",
     "static/js/787.6df84975.chunk.js": "/questic/static/js/787.6df84975.chunk.js",
     "index.html": "/questic/index.html",
-    "main.c9bff808.css.map": "/questic/static/css/main.c9bff808.css.map",
+    "main.6de32485.css.map": "/questic/static/css/main.6de32485.css.map",
     "main.75700055.js.map": "/questic/static/js/main.75700055.js.map",
     "787.6df84975.chunk.js.map": "/questic/static/js/787.6df84975.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.c9bff808.css",
+    "static/css/main.6de32485.css",
     "static/js/main.75700055.js"
   ]
 }
