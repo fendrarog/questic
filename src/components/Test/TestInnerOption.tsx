@@ -34,9 +34,9 @@ const TestInnerOption: React.FC<TestInnerOptionProps> = ({
         className={`relative min-h-[35px] flex gap-3 items-center pl-2 pr-4 lg:pr-12 duration-200 ${
           isIdle
             ? data[step].correct === i
-              ? "pointer-events-none"
+              ? ""
               : !isRight && clickedOption === i
-              ? "pointer-events-none"
+              ? ""
               : "lg:hover:bg-light-gray lg:dark:hover:bg-slate-800 lg:hover:drop-shadow-xl"
             : "lg:hover:bg-light-gray lg:dark:hover:bg-slate-800 lg:hover:drop-shadow-xl"
         }   cursor-pointer rounded-sm ${
@@ -66,7 +66,7 @@ const TestInnerOption: React.FC<TestInnerOptionProps> = ({
             />
           )}
         </div>
-        <div className="relative font-light inline-block grow py-3 items-center tracking-tight text-base md:text-lg lg:text-lg w-[calc(100%-2rem)] break-words">
+        <div className="relative font-light inline-block grow py-3 items-center text-base md:text-lg lg:text-lg w-[calc(100%-2rem)] break-words">
           {answer}
           <div className="absolute bottom-0 left-0 h-[0.5px] w-[calc(100%+1rem)] lg:w-[calc(100%+3rem)] bg-[#3f4e5c]"></div>
         </div>
