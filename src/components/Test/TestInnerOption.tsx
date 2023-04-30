@@ -66,7 +66,7 @@ const TestInnerOption: React.FC<TestInnerOptionProps> = ({
             />
           )}
         </div>
-        <div className="relative grow flex py-3 items-center tracking-tight text-base md:text-lg lg:text-lg break-words">
+        <div className="relative grow flex py-3 items-center tracking-tight text-base md:text-lg lg:text-lg break-all">
           {answer}
           <div className="absolute bottom-0 left-0 h-[0.5px] w-[calc(100%+1rem)] lg:w-[calc(100%+3rem)] bg-[#3f4e5c]"></div>
         </div>
