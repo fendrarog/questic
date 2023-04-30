@@ -3,11 +3,7 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-  html {
-    font-family: system-ui, sans-serif;
-  }
-}
+
 
 @layer components {
   /* ------------------ SCROLL LIGHT MODE ----------------------- */

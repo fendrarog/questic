@@ -19,7 +19,7 @@ const TestInner: React.FC<TestInnerProps> = ({
 }) => {
   return (
     <div className="">
-      <div className="pr-4 lg:pr-12 text-slate-900 dark:text-white font-medium tracking-tight text-lg md:text-xl lg:text-2xl">
+      <div className="pr-4 lg:pr-12 text-slate-900 dark:text-white font-normal tracking-tight text-lg md:text-xl lg:text-2xl">
         {data[step].title}
       </div>
       <div className="flex flex-col text-slate-900 dark:text-white mt-2">
